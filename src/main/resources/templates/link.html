@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+  <title>Tutorial of Thymeleaf</title>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <style>
+    h1 {font-size:18pt;}
+  </style>
+</head>
+<body>
+  <h1>Thymeleaf Page</h1>
+    <!--{aid}はプレースホルダー-->
+    //ControllerからのAttribute内のidを取得
+    <p><a th:href="@{/nextpage/{aid}(aid=${id})}">リンク</a></p>
+    
+    <!--URLのパラメータ内のidの1つ目を取得-->
+    <p><a th:href="@{nextpage/{aid}(aid=${param.id[0]})}">リンク2</a><p>
+    
+    <!--プレースホルダーなしでパラメータから直接URL生成-->
+    <p><a th:href="@{/nextpage/(id=${param.id[0]})}">リンク3</a></p>
+</body>
+</html>
